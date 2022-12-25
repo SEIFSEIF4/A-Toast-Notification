@@ -8,7 +8,7 @@ const toastDetails = {
     text: "Success: Success Notification.",
   },
   error: {
-    icon: "fa-circle-check",
+    icon: "fa-circle-xmark",
     text: "Error: Error Notification.",
   },
   warning: {
