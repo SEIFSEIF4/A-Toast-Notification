@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap");
+
+:root {
+  --dark: #0e2133;
+  --success: #199d28;
+  --info: #c4ccd4;
+  --error: #cfb00597;
+  --warning: #ff0000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--dark);
+}
+
+.btn {
+  width: 5rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+#success {
+  background-color: var(--success);
+}
+#info {
+  background-color: var(--info);
+}
+#error {
+  background-color: var(--error);
+}
+#warning {
+  background-color: var(--warning);
+}
+
+.not {
+  list-style-type: none;
+  position: fixed;
+  top: calc(0% + 3rem);
+  right: 1rem;
+}
+
+.not :where(.toast, .column) {
+  display: flex;
+  align-items: center;
+}
+
+.not .toast {
+  width: 400px;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  animation: show-toast 0.3s ease forwards;
+}
+
+@keyframes show-toast {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+.not .toast.hide {
+  animation: hide-toast 0.3s ease forwards;
+}
+@keyframes hide-toast {
+  0% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(calc(100% + 1rem));
+  }
+}
+.toast::before {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  animation: progress 5s linear forwards;
+}
+@keyframes progress {
+  100% {
+    width: 0%;
+  }
+}
+
+.column {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.toast.success::before {
+  background-color: var(--success);
+}
+.toast.error::before {
+  background-color: var(--error);
+}
+.toast.warning::before {
+  background-color: var(--warning);
+}
+.toast.info::before {
+  background-color: var(--info);
+}
+
+.toast.success .column i {
+  color: var(--success);
+}
+.toast.error .column i {
+  color: var(--error);
+}
+.toast.warning .column i {
+  color: var(--warning);
+}
+.toast.info .column i {
+  color: var(--info);
+}
+
+.toast .column i {
+  font-size: 1.75rem;
+}
+.toast .column span {
+  font-size: 1.1rem;
+  margin-left: 12px;
+}
+.toast i:last-child {
+  color: #aeb0d7;
+  cursor: pointer;
+}
+
+.toast i:last-child:hover {
+  color: var(--warning);
+}
