@@ -12,7 +12,7 @@ const toastDetails = {
     text: "Error: Error Notification.",
   },
   warning: {
-    icon: "fa-circle-warning",
+    icon: "fa-warning",
     text: "Warning: Warning Notification.",
   },
   info: {
